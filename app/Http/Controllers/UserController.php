@@ -21,22 +21,20 @@ class UserController extends Controller
     }
     public function pengobatan()
     {   
-        $nama = User::where('role', '!=', 'admin')->get();
         $pengobatan = JadwalPengobatan::all();
-        return view('user.pengobatan', compact('pengobatan', 'nama'));
+        return view('user.pengobatan', compact('pengobatan'));
     }
 
     public function pengobatanstore(Request $request)
     {
         $request->validate([
-            'nama' => 'required|string',
             'tanggal' => 'required|string',
             'jam' => 'required|string',
             'jenis_pengobatan_gigi' => 'required|string',
         ]);
 
         $pengobatan = new JadwalPengobatan;
-        $pengobatan->nama = $request->input('nama');
+        $pengobatan->nama = User::find(Auth()->user()->id)->name;
         $pengobatan->tanggal = $request->input('tanggal');
         $pengobatan->jam = $request->input('jam');
         $pengobatan->jenis_pengobatan_gigi = $request->input('jenis_pengobatan_gigi');

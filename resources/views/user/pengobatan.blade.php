@@ -16,16 +16,6 @@
                 <button type="submit"><img src="{{ asset('save.svg') }}" class="h-10 w-10"></button>
             </div>
             <div class="mb-4 flex items-center gap-3">
-                <label class=" text-gray-700 uppercase text-sm font-bold mb-2 w-52">Nama</label>
-                <select name="nama" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
-                    <option disabled>Pilih Pasien</option>
-                        @foreach ($nama as $namas)
-                            <option value="{{ $namas->nik }}-{{ $namas->name }}">{{ $namas->nik }}-{{ $namas->name }}
-                            </option>
-                        @endforeach
-                </select>
-            </div>
-            <div class="mb-4 flex items-center gap-3">
                 <label class=" text-gray-700 uppercase text-sm font-bold mb-2 w-52">Jam</label>
                 <input type="time" name="jam" 
                     class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
